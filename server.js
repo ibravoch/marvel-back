@@ -9,7 +9,7 @@ const axios = require("axios");
 
 app.get("/", async (req, res) => {
   const response = await axios.get(
-    "https://lereacteur-marvel-api.herokuapp.com/characters?apiKey=KUuKXbduDgD49DN4"
+    `https://lereacteur-marvel-api.herokuapp.com/characters?apikey=${process.env.MARVEL_API_KEY}`
   );
   res.status(200).json(response.data);
   console.log("ma route is good");
@@ -17,7 +17,7 @@ app.get("/", async (req, res) => {
 
 app.get("/character/:characterId", async (req, res) => {
   const response = await axios.get(
-    `https://lereacteur-marvel-api.herokuapp.com/character/${req.params.characterId}?apiKey=KUuKXbduDgD49DN4`
+    `https://lereacteur-marvel-api.herokuapp.com/character/${req.params.characterId}?apiKey=${process.env.MARVERL_API_KEY}`
   );
   res.status(200).json(response.data);
   console.log(response.data);
