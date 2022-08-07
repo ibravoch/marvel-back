@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 const MARVEL_API_KEY = process.env.MARVEL_API_KEY;
 
-app.get("/characters", async (req, res) => {
+app.get("/", async (req, res) => {
   let limit = req.query.limit;
   let skip = limit * req.query.skip;
   try {
